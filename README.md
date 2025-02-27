@@ -43,3 +43,6 @@ This project is a Personality Quiz and Movie Recommendation System that allows u
 I chose this project because it combines personality psychology with full-stack web development, allowing me to create an interactive, personalized experience for users. Through this project, I’ve gained hands-on experience with React, Node.js, Express, MongoDB, and Mongoose, learning how to build APIs, manage databases, and deploy full-stack applications. The project also helped me develop important skills in session management, user authentication, and API testing, making it both a fun and valuable learning experience.
 
 This project is not only fun and educational but also demonstrates my ability to build a full-stack application from start to finish, deploying both the frontend and backend to production. It has been a great opportunity to develop my skills in both backend technologies and frontend development, while also focusing on database management and user authentication.
+
+# **Render link:**
+https://s64-personality-quiz-and-movie.onrender.com
