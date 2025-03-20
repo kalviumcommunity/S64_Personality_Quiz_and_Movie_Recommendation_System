@@ -46,3 +46,6 @@ This project is not only fun and educational but also demonstrates my ability to
 
 # **Render link:**
 https://s64-personality-quiz-and-movie.onrender.com
+
+# **Deployment link:**
+https://frontend-2zzuxijhq-harshitas-projects-c730cd81.vercel.app/
