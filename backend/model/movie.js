@@ -1,17 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-// Movie Schema
-const movieSchema = new mongoose.Schema({
-    personalityType: { type: String, required: true },
-    movies: [
-        {
-            title: { type: String, required: true },
-            description: { type: String },
-            releaseYear: { type: Number }
-        }
-    ]
+const MovieSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    genre: { type: String, required: true },
+    personalityType: { type: String, required: true }, // Matches quiz personality results
 });
 
-const Movie = mongoose.model('Movie', movieSchema);
-
-module.exports = Movie
+module.exports = mongoose.model("Movie", MovieSchema);

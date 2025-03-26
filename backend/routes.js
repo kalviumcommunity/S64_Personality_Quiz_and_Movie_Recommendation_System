@@ -132,5 +132,14 @@ router.delete('/movies/:id', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+// Fetch movies based on personality type
+router.get("/movies/:personalityType", async (req, res) => {
+    try {
+        const movies = await Movie.find({ personalityType: req.params.personalityType });
+        res.json(movies);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching movies", error });
+    }
+});
 
 module.exports = router;
