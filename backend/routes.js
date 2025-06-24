@@ -49,17 +49,6 @@ router.delete('/users/:id', async (req, res) => {
 
 // 📌 CRUD Operations for Questions
 
-// Create Question
-router.post('/questions', async (req, res) => {
-    try {
-        const newQuestion = new Question(req.body);
-        await newQuestion.save();
-        res.status(201).json(newQuestion);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
-
 // Get All Questions
 router.get('/questions', async (req, res) => {
     try {
@@ -92,54 +81,21 @@ router.delete('/questions/:id', async (req, res) => {
 
 // 📌 CRUD Operations for Movies
 
-// Create Movie
-router.post('/movies', async (req, res) => {
-    try {
-        const newMovie = new Movie(req.body);
-        await newMovie.save();
-        res.status(201).json(newMovie);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
-
 // Get All Movies
-router.get('/movies', async (req, res) => {
+router.get("/movies", async (req, res) => {
     try {
-        const movies = await Movie.find();
+        const personality = req.query.personalityType;
+        if (!personality) {
+            return res.status(400).json({ error: "Personality type is required" });
+        }
+
+        const movies = await Movie.find({ personalityType: personality }).limit(3); // Limit results to 3
         res.json(movies);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error("Error fetching movies:", error);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
 
-// Update Movie
-router.put('/movies/:id', async (req, res) => {
-    try {
-        const updatedMovie = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(updatedMovie);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
-
-// Delete Movie
-router.delete('/movies/:id', async (req, res) => {
-    try {
-        await Movie.findByIdAndDelete(req.params.id);
-        res.json({ message: 'Movie deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-// Fetch movies based on personality type
-router.get("/movies/:personalityType", async (req, res) => {
-    try {
-        const movies = await Movie.find({ personalityType: req.params.personalityType });
-        res.json(movies);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching movies", error });
-    }
-});
 
 module.exports = router;

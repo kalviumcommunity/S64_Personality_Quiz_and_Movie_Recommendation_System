@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
-    navigate("/start-quiz"); // Redirect to Start Quiz page
+    navigate("/quiz"); // Redirect to Start Quiz page
   };
 
   return (
